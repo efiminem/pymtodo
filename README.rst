@@ -97,7 +97,7 @@ and new tasks can be created in particluar list:
 Delete lists and tasks
 -------------------
 
-You can delete you lists and tasks by the delete method:
+You can delete your lists and tasks by the delete method:
 
 .. code:: python
 
@@ -108,7 +108,7 @@ You can delete you lists and tasks by the delete method:
 Documentation
 ============
 
-Detailed documentation is yet to come.
+Detailed documentation will be available soon.
 
 ============
 Disclaimer
@@ -120,4 +120,5 @@ Pymtodo is an unofficial, open source, third-party, free app and is not affiliat
 License
 ============
 
-`MIT <https://github.com/efiminem/pymtodo/LICENSE>`
+Pymtodo is distributed under the MIT `license
+<https://github.com/efiminem/pymtodo/LICENSE>`_.
