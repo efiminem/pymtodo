@@ -36,7 +36,7 @@ your workflow and create long lists (for example, if you read books and like to 
 Installing
 ============
 
-You can install pymtodo from our repo:
+You can install pymtodo via pip:
 
 .. code:: shell
 

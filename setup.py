@@ -6,14 +6,14 @@ with open("README.rst", "r") as fh:
 
 setup(
      name='pymtodo',  
-     version='0.1',
+     version='0.2',
      author="Efim Mazhnik",
      author_email="efimmazhnik@gmail.com",
      description="Unofficial Microsoft To-Do python library",
      long_description=long_description,
-   long_description_content_type="text/markdown",
+     long_description_content_type="text/x-rst",
      url="https://github.com/efiminem/pymtodo",
-     download_url="https://github.com/efiminem/pymtodo/archive/v0.1.zip",
+     download_url="https://github.com/efiminem/pymtodo/archive/v0.2.zip",
      packages=["pymtodo"],
      package_dir={"pymtodo": "src"},
      classifiers=[
