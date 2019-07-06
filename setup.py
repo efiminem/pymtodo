@@ -16,7 +16,7 @@ setup(
      packages=["pymtodo"],
      package_dir={"pymtodo": "src"},
      classifiers=[
-	     "Development Status :: 2 - Pre-Alpha",
+         "Development Status :: 2 - Pre-Alpha",
          "License :: OSI Approved :: MIT License",
          "Programming Language :: Python :: 3",
          "Operating System :: OS Independent",
