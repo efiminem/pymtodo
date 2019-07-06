@@ -36,7 +36,7 @@ your workflow and create long lists (for example, if you read books and like to 
 Installing
 ============
 
-For now, you can install pymtodo from our repo:
+You can install pymtodo from our repo:
 
 .. code:: shell
 
@@ -51,7 +51,7 @@ Quick start
 Authorizing
 -------------------
 
-Pymtodo is very easy to use. First, you need to authorize in the To-Do system:
+Pymtodo is very easy to use. First, you need to be authorized in the Microsoft To-Do system:
 
 .. code:: python
 
@@ -59,7 +59,10 @@ Pymtodo is very easy to use. First, you need to authorize in the To-Do system:
 	from getpass import getpass
 	
 	a = ToDoConnection()
-	a.connect(email = 'johndoe@gmail.com', password = getpass())
+	a.connect(email = 'your-email@gmail.com', password = getpass())
+
+Getpass package allows you to write your password in the secure way, so noone will see it. Alternatively, you 
+can just type it directly.
 
 -------------------
 Get lists and tasks
@@ -81,13 +84,13 @@ To get the tasks for the particular list, you can write:
 Create lists and tasks
 -------------------
 
-You can create lists by
+You can create lists by using
 
 .. code:: python
 
 	a.create_list("New list")
 
-and new tasks can be created in particluar list:
+and new tasks can be created in the particluar list:
 
 .. code:: python
 
@@ -103,6 +106,8 @@ You can delete your lists and tasks by the delete method:
 
 	a.lists[0].delete()
 	a.lists[0].tasks[0].delete()
+
+Be careful, there will not be a warning message.
 
 ============
 Documentation
