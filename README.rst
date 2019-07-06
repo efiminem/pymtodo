@@ -121,4 +121,4 @@ License
 ============
 
 Pymtodo is distributed under the MIT `license
-<https://github.com/efiminem/pymtodo/LICENSE>`_.
+<https://github.com/efiminem/pymtodo/blob/master/LICENSE>`_.
