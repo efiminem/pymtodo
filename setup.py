@@ -13,6 +13,7 @@ setup(
      long_description=long_description,
    long_description_content_type="text/markdown",
      url="https://github.com/efiminem/pymtodo",
+     download_url="https://github.com/efiminem/pymtodo/archive/v0.1.zip",
      packages=["pymtodo"],
      package_dir={"pymtodo": "src"},
      classifiers=[
