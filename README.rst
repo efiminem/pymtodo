@@ -40,8 +40,7 @@ You can install pymtodo via pip:
 
 .. code:: shell
 
-	$ git clone https://github.com/efiminem/pymtodo.git
-        $ pip install pymtodo
+	$ pip install pymtodo
 
 ============
 Quick start
@@ -80,9 +79,9 @@ To get the tasks for the particular list, you can write:
 
 	a.lists[0].tasks
 
--------------------
+-----------------------
 Create lists and tasks
--------------------
+-----------------------
 
 You can create lists by using
 
@@ -96,9 +95,9 @@ and new tasks can be created in the particluar list:
 
 	a.lists[0].create_task("New task")
 
--------------------
+-----------------------
 Delete lists and tasks
--------------------
+-----------------------
 
 You can delete your lists and tasks by the delete method:
 
@@ -109,9 +108,9 @@ You can delete your lists and tasks by the delete method:
 
 Be careful, there will not be a warning message.
 
-============
+==============
 Documentation
-============
+==============
 
 Detailed documentation will be available soon.
 
