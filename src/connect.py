@@ -3,6 +3,7 @@ import json
 
 from pymtodo.list import ToDoList
 from pymtodo.task import ToDoTask
+from pymtodo.subtask import ToDoSubTask
 
 
 class ToDoConnection:
@@ -299,10 +300,70 @@ class ToDoConnection:
         
         response = requests.delete(url = task_url, headers = headers)
         if response.status_code == 204:
-            return 1
+            return True
         else:
-            return 0
-    
+            return False
+        
+    def _create_subtask(self, name, task_id):
+        """
+        Creates subtask
+        
+        Args:
+            name (str): Name of subtask
+            task_id (str): Id of the task in which subtask will be created
+        """
+        
+        subtask_url = self._api_url + 'tasks/' + task_id + '/subtasks'
+        
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': self.access_token_type + ' ' + self.access_token,
+            'X-AnchorMailbox': 'CID:' + self.user_id
+        }
+        
+        data = {
+            'Subject': name,
+            'OrderDateTime': self._get_current_datetime(),
+        }
+        
+        response = requests.post(url = subtask_url, headers = headers, data = json.dumps(data))
+        if 'Id' in response.json():
+            return True
+        else:
+            return False
+        
+    def _delete_subtask(self, task_id, subtask_id):
+        """
+        Deletes subtask by task_id and subtask_id
+        
+        Args:
+            task_id (str): Id of the task in which subtask will be deleted
+            subtask_id (str): Id of the subtask to be deleted
+            
+        Returns:
+            bool: The return value. True for success, False otherwise    
+        """
+        
+        subtask_url = self._api_url + 'tasks/' + task_id + '/subtasks/' + subtask_id
+        
+        headers = {
+            'Authorization': self.access_token_type + ' ' + self.access_token,
+            'X-AnchorMailbox': 'CID:' + self.user_id
+        }
+        
+        response = requests.delete(url = subtask_url, headers = headers)
+        if response.status_code == 204:
+            return True
+        else:
+            return False
+        
+        
+    def _get_current_datetime(self):
+        """
+        Gets current datetime in ISO 8601 specification
+        """
+        return datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+
     @property
     def lists(self):
         """The same as _get_lists"""

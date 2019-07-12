@@ -34,6 +34,7 @@ class ToDoTask:
         self.importance = task_dict['Importance']
         self.created_by_user = task_dict['CreatedByUser']
         self.completed_by_user = task_dict['CompletedByUser']
+        self._assign_subtasks(task_dict['Subtasks'])
         
     def delete(self):
         """
@@ -50,10 +51,38 @@ class ToDoTask:
         Used to assign parent ToDoList instance for ToDoTask instance
         
         Args:
-            parent (ToDoTask): parent ToDoTask instance            
+            parent (ToDoList): parent ToDoList instance            
         """
         
         self.parent = parent
+        
+    def _assign_subtasks(self, subtask_list):
+        """
+        Assign subtasks to the current task
+        
+        Args:
+            subtask_list (list): List of subtasks descriptions in the current task
+        """
+        self._subtasks = []
+        for subtask_dict in subtask_list:
+            new_subtask = ToDoSubTask(self._connection, subtask_dict)
+            new_subtask._assign_parent(self)
+            self._subtasks.append(new_subtask)
+            
+    def create_subtask(self, name):
+        """
+        Creates subtask
+        
+        Args:
+            name (str): Name of subtask
+        """
+        return self._connection._create_subtask(name, self.id)
+    
+    @property
+    def subtasks(self):
+        """The same as _get_subtasks."""
+        
+        return self._subtasks
         
     def __repr__(self):
         """
