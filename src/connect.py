@@ -1,4 +1,5 @@
 import requests
+import json
 
 from pymtodo.list import ToDoList
 from pymtodo.task import ToDoTask
@@ -76,7 +77,7 @@ class ToDoConnection:
             'flowToken': PPFT,
         }
         
-        response = requests.post(url = self._credential_url, headers = headers, data = str(data))        
+        response = requests.post(url = self._credential_url, headers = headers, data = json.dumps(data))        
         try:
             if_not_exist = response.json()['IfExistsResult']
         except:
@@ -214,7 +215,7 @@ class ToDoConnection:
             'ThemeColor': 'blue',
         }
         
-        response = requests.post(url = lists_url, headers = headers, data = str(data))
+        response = requests.post(url = lists_url, headers = headers, data = json.dumps(data))
         if response.status_code == 201:
             return True
         else:
@@ -272,7 +273,7 @@ class ToDoConnection:
             'Importance': importance,
         }
         
-        response = requests.post(url = list_url, headers = headers, data = str(data))
+        response = requests.post(url = list_url, headers = headers, data = json.dumps(data))
         if 'Id' in response.json():
             return True
         else:
